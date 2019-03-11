@@ -32,9 +32,10 @@ def summary(files):
 		for tooth in paste:
 			dup1=tooth.split()[0]
 			dup2=tooth.split()[1]
-			dup1=dup1+"_"+dup2
-			assign=tooth.split()[2]
-			source=tooth.split()[3]
+			anc=tooth.split()[2]
+			dup1=dup1+"_"+dup2+"_"+anc
+			assign=tooth.split()[3]
+			source=tooth.split()[4]
 			if dup1 not in present:
 				present[dup1] = [assign, source]
 			else:
@@ -50,16 +51,18 @@ def summary(files):
 	return present
 
 
-path=glob.glob("*.temp")
+path=glob.glob("*.bdi_osa_common_osa.temp")
 
-f1=open("consistent.table.all.noclade.twooutg", "w")
+f1=open("consistent.table.bdi_osa_common_osa.count_gain06", "w")
 
 for data in path:
 	allinfor=summary(data)
+	print allinfor
 	for genes in allinfor:
 		dup1=genes.split("_")[0]
 		dup2=genes.split("_")[1]
-		f1.write(dup1+"\t"+dup2+"\t")
+		ances=genes.split("_")[2]
+		f1.write(dup1+"\t"+dup2+"\t"+ ances+"\t")
 		i=0
 		assignments=allinfor[genes]
 		for stuff in assignments:
@@ -72,7 +75,7 @@ for data in path:
 			else:
 				major=dup1
 			# When ORTHO is the only one that doesn't agree with the two, add *.not. to ORTHO
-			f1.write(major+"\t"+ "*.not.ORTHO"+"\t"+"TROG"+"\t"+"anchor_point"+"\n")
+			f1.write(major+"\t"+ "*.not.anchor_point"+"\t"+"ORTHO"+"\t"+"TROG"+"\n")
 		else:
 			major=assignments[0]
 			f1.write(major+"\t")
