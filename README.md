@@ -66,3 +66,10 @@ $ get.dna.rna.py
 --> Sorghum.dups.Brachypodium.table.p1c2a3.count_gain06.siqr.result1.txt.merge.dna_rna
 
 ##Calculate tissue specificity, and get the tissue in which the gene has the highest expression 
+
+##Statistical test of tissue over-representation
+
+$ triplebar.merge.Rmd
+
+
+
