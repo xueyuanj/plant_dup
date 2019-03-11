@@ -25,14 +25,23 @@ $ cdrom.play.R
 $ python automator.py
 
 ##calculate Ka, Ks, Ka/Ks using PAML
+
 (1) remove ! in alignment file
+
 $ python remove_ex.py
+
 (2) convert to phylip format
+
 $ python phylip_generator.py
+
 (3) run PAML
+
 $ python autopaml.py
+
 (4) parse the PAML output
+
 $ python getdnds.py
+
 
 ##correlation between expression divergence and sequence divergence
 $ R corre.ka.plot.R
