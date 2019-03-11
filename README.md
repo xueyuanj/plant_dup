@@ -17,6 +17,15 @@ used majority-voting scheme.
 
 ##Obtain and clean the expression file.
 
+$python filter.exp.plus.idc.py
+
+$python remove.dup.py
+
+--> Brachypodium.TPM.log2trans.highexp.txt,clean
+
+--> Oryza.TPM.log2trans.highexp.txt,clean
+
+--> Sorghum.TPM.log2trans.highexp.txt,clean
 
 ##Run CDROM to classify the duplicates into different retention mechanisms.
 
