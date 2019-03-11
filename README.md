@@ -9,8 +9,10 @@
 ##Identify duplicates:
 ##use maximum-likelihood method COUNT (Csuos 2010) to estimate rates of duplications and losses along the tree
 
-$java -Xmx2048M -cp Count.jar ca.umontreal.iro.evolution.genecontent.ML noclade_select.ids.txt full.tree.spare.txt>          fulltree.ml
-  
+$java -Xmx2048M -cp Count.jar ca.umontreal.iro.evolution.genecontent.ML 
+
+$java -Xmx2048M -cp Count.jar ca.umontreal.iro.evolution.genecontent.AsymmetricWagner
+
 ##Assign the ancestral copy, get the table of triplets.Used majority-voting scheme.
 
 $ python direct.ances.py
