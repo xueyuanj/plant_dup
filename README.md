@@ -67,6 +67,15 @@ $ get.dna.rna.py
 
 ##Calculate tissue specificity, and get the tissue in which the gene has the highest expression 
 
+$ tao.R
+
+--> Brachypodium.dups.Oryza.table.p1c2a3.count_gain06.siqr.result1.txt.merge.tao_largest
+
+--> Oryza.dups.Brachypodium.table.p1c2a3.count_gain06.siqr.result1.txt.merge.tao_largest
+
+--> Sorghum.dups.Brachypodium.table.p1c2a3.count_gain06.siqr.result1.txt.merge.tao_largest
+
+
 ##Statistical test of tissue over-representation
 
 $ triplebar.merge.Rmd
