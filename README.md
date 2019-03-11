@@ -53,7 +53,7 @@ $ python getdnds.py
 
 ##Correlation between expression divergence and sequence divergence
 
-$ R corre.ka.plot.R
+$ R plot.kaks.R
 
 ##Determine DNA- and RNA-mediated duplication
 
