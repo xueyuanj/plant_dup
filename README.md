@@ -55,6 +55,14 @@ $ python getdnds.py
 
 $ R corre.ka.plot.R
 
-##determine DNA- and RNA-mediated duplication
+##Determine DNA- and RNA-mediated duplication
 
-# 
+$ get.dna.rna.py
+
+--> Brachypodium.dups.Sorghum.table.p1c2a3.count_gain06.siqr.result1.txt.merge.dna_rna
+
+--> Oryza.dups.Brachypodium.table.p1c2a3.count_gain06.siqr.result1.txt.merge.dna_rna
+
+--> Sorghum.dups.Brachypodium.table.p1c2a3.count_gain06.siqr.result1.txt.merge.dna_rna
+
+##Calculate tissue specificity, and get the tissue in which the gene has the highest expression 
