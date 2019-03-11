@@ -11,15 +11,19 @@
 
 $java -Xmx2048M -cp Count.jar ca.umontreal.iro.evolution.genecontent.ML noclade_select.ids.txt full.tree.spare.txt>          fulltree.ml
   
-##Assign the ancestral copy, get the table of triplets.
+##Assign the ancestral copy, get the table of triplets.Used majority-voting scheme.
 
-used majority-voting scheme.
+$ python direct.ances.py
+
+$ python conut.consistent.py
+
+$ python assign.py
 
 ##Obtain and clean the expression file.
 
-$python filter.exp.plus.idc.py
+$ python filter.exp.plus.idc.py
 
-$python remove.dup.py
+$ python remove.dup.py
 
 --> Brachypodium.TPM.log2trans.highexp.txt,clean
 
