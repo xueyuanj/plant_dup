@@ -1,0 +1,65 @@
+---
+title: "Triple"
+output: html_document
+---
+
+```{r }
+setwd("/data/2017_plant_dup_Nov/specificities")
+
+spename=c("Brachypodium", "Oryza", "Sorghum")
+
+
+
+######################################################################################
+# Merge the child and parent, use single-copy genes to calculate expectation
+
+#### The re-organized one used for publication ###
+  chidf=data.frame()
+  
+  for (i in 1:length(spename)){
+    mechfile=list.files("/data/2017_plant_dup_Nov/specificities", 
+                        pattern =paste("^",spename[i],".*.counts.duplicates" ,sep=""))
+    #print(mechfile)
+    obs1 =read.table(mechfile[1])
+    #obs2 =read.table(mechfile[2])
+    
+    #obs_cp=obs1+obs2
+    obs_cp=obs1
+    
+    singlename=paste("geneids.", spename[i], ".all.plaza.txt.clean.largest" , sep="")
+    
+    singledf=read.table(singlename)
+    singlebase=table(singledf$V2)
+    consc=rbind(obs_cp,singlebase)
+    #print(consc)
+    expect=consc["2",]*rowSums(consc)[1]/rowSums(consc)[2]
+    consc=rbind(consc, expect)
+
+    chi_gram=(consc[1,]-consc[3,])/sqrt(consc[3,])
+    consc=rbind(consc, chi_gram)
+    rownames(consc)=c("observed", "single", "expected", "chi_gram")
+    tempchi=consc["chi_gram", ]
+    chidf=rbind(chidf, tempchi)
+
+    fortest=as.matrix(consc[c(1,2),])
+    overalltest=matrix(c(chisq.test(fortest)$p.value,chisq.test(fortest, simulate.p.value = TRUE)$p.value,
+                         "NA", fisher.test(fortest, hybrid=TRUE, simulate.p.value = TRUE)$p.value),
+                       ncol = 2, nrow = 2,byrow = TRUE, dimnames = list(c("chi-square", "fisher"), c("p", "sim.p")))
+    print(overalltest)
+    inditest=matrix(NA, ncol = 9, nrow = 1, dimnames = list( "binomial", colnames(consc)) )
+    for (wang in 1:ncol(consc)){
+      thisp=binom.test(consc[1,wang], rowSums(consc)[1], p=consc[2,wang]/rowSums(consc)[2])$p.value
+      inditest[1,wang]=thisp
+    }
+    
+    print(p.adjust(inditest[1,], method="bonferroni", n=length(inditest[1,])))
+
+  }
+rownames(chidf)=c("Brachypodium", "Oryza", "Sorghum")
+
+#print(chidf)
+barplot(as.matrix(chidf[,c("leaf", "anther", "early_inflorescence", "emerging_inflorescence", "endosperm", "pistil", "plant_embryo", "seed_5_days_after_pollination", "seed_10_days_after_pollination")]), beside = TRUE,ylim = c(-6,4),
+        cex.axis = 0.8, cex.names = 0.8, col=c( "#74ADD1"  ,  "#74C476" , "plum3"),xaxt='n')
+
+
+```
