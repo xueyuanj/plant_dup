@@ -29,7 +29,7 @@ $ python conut.consistent.py
 
 $ python assign.py
 
---> 
+--> table.p1c2a3.count_gain06.txt
 ##
 ##
 ##Obtain and clean the expression file.
