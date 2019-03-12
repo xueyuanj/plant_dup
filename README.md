@@ -3,7 +3,9 @@
 
 ##Download the monocot phylogeny from PLAZA 3.0
 --> noclade_select.ids.txt
-
+##
+##
+##
 ##Identify 1:1 and 1:1:1 single-copy orthologs
 
 ##Identify duplicates:
@@ -12,7 +14,9 @@
 $java -Xmx2048M -cp Count.jar ca.umontreal.iro.evolution.genecontent.ML 
 
 $java -Xmx2048M -cp Count.jar ca.umontreal.iro.evolution.genecontent.AsymmetricWagner
-
+##
+##
+##
 ##Assign the ancestral copy, get the table of triplets.Used majority-voting scheme.
 
 $ python direct.ances.py
