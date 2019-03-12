@@ -5,7 +5,13 @@
 --> noclade_select.ids.txt
 ##
 ##
-##Identify 1:1 and 1:1:1 single-copy orthologs
+##Identify lineag-specific single-copy genes and 1:1 single-copy orthologs
+
+$ python 1to1to1.py
+
+--> singlecopy.plaza.bdi_osa.ids.txt
+--> singlecopy.plaza.bdi_sbi.ids.txt
+--> singlecopy.plaza.osa_sbi.ids.txt
 
 ##Identification of duplicates
 ##Use maximum-likelihood method COUNT (Csuos 2010) to estimate rates of duplications and losses along the tree
@@ -22,6 +28,8 @@ $ python direct.ances.py
 $ python conut.consistent.py
 
 $ python assign.py
+
+--> 
 ##
 ##
 ##Obtain and clean the expression file.
