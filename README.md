@@ -7,8 +7,8 @@
 ##
 ##Identify 1:1 and 1:1:1 single-copy orthologs
 
-##Identify duplicates:
-##use maximum-likelihood method COUNT (Csuos 2010) to estimate rates of duplications and losses along the tree
+##Identification of duplicates
+##Use maximum-likelihood method COUNT (Csuos 2010) to estimate rates of duplications and losses along the tree
 
 $java -Xmx2048M -cp Count.jar ca.umontreal.iro.evolution.genecontent.ML 
 
