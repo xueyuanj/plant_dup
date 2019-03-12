@@ -14,6 +14,7 @@ $ python 1to1to1.py
 --> singlecopy.plaza.osa_sbi.ids.txt
 
 ##Identification of duplicates
+
 ##Use maximum-likelihood method COUNT (Csuos 2010) to estimate rates of duplications and losses along the tree
 
 $java -Xmx2048M -cp Count.jar ca.umontreal.iro.evolution.genecontent.ML 
